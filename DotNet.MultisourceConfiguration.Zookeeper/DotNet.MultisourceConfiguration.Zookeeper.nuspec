@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>DotNet.MultiSourceConfiguration.Zookeeper</id>
+		<version>0.1.0</version>
+		<title>DotNet.MultiSourceConfiguration.Zookeeper</title>
+		<authors>Rubén Martínez</authors>
+		<owners>Rubén Martínez</owners>
+		<licenseUrl>https://www.gnu.org/licenses/lgpl-3.0.en.html</licenseUrl>
+		<projectUrl>https://github.com/rubms/DotNet.MultisourceConfiguration.Zookeeper</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<summary>Zookeeper configuration source for the DotNet.MultiSourceConfiguration library.</summary>
+		<description>Zookeeper configuration source for the DotNet.MultiSourceConfiguration library.</description>
+		<releaseNotes>First version.</releaseNotes>
+		<copyright>Copyright 2017</copyright>
+		<tags>ZooKeeper Configuration Source Multisource MultiSourceConfiguration DotNet.MultiSourceConfiguration</tags>
+		<dependencies>
+			<dependency id="DotNet.MultiSourceConfiguration" version="[0.1,1.0)" />
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="bin\Release\DotNet.MultiSourceConfiguration.Zookeeper.dll" target="lib\net45" />
+	</files>  
+</package>
