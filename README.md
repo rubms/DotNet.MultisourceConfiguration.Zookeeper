@@ -7,9 +7,9 @@ Zookeeper configuration source for the [DotNet.MultiSourceConfiguration](https:/
 ## How to use it
 You can add ZookeeperConfigSource as a configuration source for your IConfigurationBuilder (from [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration)). You need to provide an instance of IZooKeeper (from [ZooKeeper.Net](https://www.nuget.org/packages/ZooKeeper.Net/)) to the ZookeeperConfigSource, for it to be able to connect ZooKeeper. In addition you need to provide a _base path_, which is the base path in ZooKeeper for the nodes containing your configuration properties.
 ```C#
-	using MultisourceConfiguration;
-	using MultisourceConfiguration.Zookeeper;
-	using ZooKeeperNet;
+    using MultisourceConfiguration;
+    using MultisourceConfiguration.Zookeeper;
+    using ZooKeeperNet;
 	
     class Program
     {
