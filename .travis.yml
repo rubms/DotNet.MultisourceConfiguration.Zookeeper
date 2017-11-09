@@ -1,0 +1,8 @@
+language: csharp
+solution: DotNet.MultiSourceConfiguration.Zookeeper.sln
+install:
+  - nuget restore DotNet.MultiSourceConfiguration.Zookeeper.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release DotNet.MultiSourceConfiguration.Zookeeper.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./DotNet.MultiSourceConfiguration.Zookeeper.Tests/bin/Release/DotNet.MultiSourceConfiguration.Zookeeper.Tests.dll

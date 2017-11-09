@@ -17,7 +17,7 @@ namespace MultisourceConfiguration.Zookeeper.Tests
             string testPropertyName = "testProperty";
             string testPropertyValue = "testValue";
 
-            zooKeeperMock.Setup(x => x.GetData(testBasePath + testPropertyName, false, null))
+            zooKeeperMock.Setup(x => x.GetData(testBasePath + testPropertyName, true, null))
                 .Returns(System.Text.Encoding.UTF8.GetBytes(testPropertyValue));
 
             string obtainedPropertyValue;
@@ -35,7 +35,7 @@ namespace MultisourceConfiguration.Zookeeper.Tests
             string testPropertyName = "testProperty";
             string testPropertyValue = "testValue";
 
-            zooKeeperMock.Setup(x => x.GetData(testBasePath + "/" + testPropertyName, false, null))
+            zooKeeperMock.Setup(x => x.GetData(testBasePath + "/" + testPropertyName, true, null))
                 .Returns(System.Text.Encoding.UTF8.GetBytes(testPropertyValue));
 
             string obtainedPropertyValue;
@@ -52,7 +52,7 @@ namespace MultisourceConfiguration.Zookeeper.Tests
 
             string testPropertyName = "testProperty";
 
-            zooKeeperMock.Setup(x => x.GetData(testBasePath + testPropertyName, false, null))
+            zooKeeperMock.Setup(x => x.GetData(testBasePath + testPropertyName, true, null))
                 .Throws(new KeeperException.NoNodeException());
 
             string obtainedPropertyValue;

@@ -38,7 +38,7 @@ namespace MultisourceConfiguration.Zookeeper
         {
             try
             {
-                value = Encoding.UTF8.GetString(_zooKeeper.GetData(_basePath + "/" + property, false, null));
+                value = Encoding.UTF8.GetString(_zooKeeper.GetData(_basePath + "/" + property, true, null));
                 return true;
             }
             catch(KeeperException ex)

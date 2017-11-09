@@ -16,6 +16,8 @@
 		<tags>ZooKeeper Configuration Source Multisource MultiSourceConfiguration DotNet.MultiSourceConfiguration</tags>
 		<dependencies>
 			<dependency id="DotNet.MultiSourceConfiguration" version="[0.1,1.0)" />
+			<dependency id="ZooKeeper.Net" version="[3.0,4.0)" />
+			
 		</dependencies>
 	</metadata>
 	<files>
