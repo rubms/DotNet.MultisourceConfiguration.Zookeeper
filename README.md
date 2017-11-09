@@ -1,6 +1,6 @@
 # DotNet.MultisourceConfiguration.Zookeeper
 
-[![Build Status](https://travis-ci.org/rubms/DotNet.MultiSourceConfiguration.Zookeeper.svg?branch=master)](https://travis-ci.org/rubms/DotNet.MultiSourceConfiguration.Zookeeper)
+[![Build Status](https://travis-ci.org/rubms/DotNet.MultisourceConfiguration.Zookeeper.svg?branch=master)](https://travis-ci.org/rubms/DotNet.MultisourceConfiguration.Zookeeper)
 [![NuGet Version](https://img.shields.io/nuget/v/DotNet.MultiSourceConfiguration.Zookeeper.svg?style=flat)](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration.Zookeeper)
 
 Zookeeper configuration source for the [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration) library, based on the [ZooKeeper.Net](https://www.nuget.org/packages/ZooKeeper.Net/) ZooKeeper client.
