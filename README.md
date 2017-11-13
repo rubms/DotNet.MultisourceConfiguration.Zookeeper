@@ -18,7 +18,7 @@ You can add ZookeeperConfigSource as a configuration source for your IConfigurat
         static void Main(string[] args)
         {
             IConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
-            IZooKeeper zooKeeper = new ZooKeeper("localhost:2181", TimeSpan.TimeSpan.FromSeconds(30), new ZooKeeperConfigWatcher());
+            IZooKeeper zooKeeper = new ZooKeeper("localhost:2181", TimeSpan.FromSeconds(30), new ZooKeeperConfigWatcher());
             configurationBuilder.AddSources(new ZookeeperConfigSource(zooKeeper, "/path/to/config/in/zookeeper"));
             
             TestConfigurationDto configurationInterface = configurationBuilder.Build<TestConfigurationDto>();
@@ -49,7 +49,7 @@ when the configuration is built using `configurationBuilder.Build<TestConfigurat
 
 ## Bootstrapping the ZooKeeper Configuration
 
-It very probable that will want to read the ZooKeeper connection string (comma separated list of `host:port`) and the session timeout from configuration, instead of hard-coding it. You may read that configuration from your IConfigurationBuilder, taking advantage of other configuration sources, like `AppSettingsSource`, `EnvironmentVariableSource` or `CommandLineSource`.
+You will very probably want to read the ZooKeeper connection string (comma separated list of `host:port`), the session timeout and the base path from configuration, instead of hard-coding it. You may read that configuration from your IConfigurationBuilder, taking advantage of other configuration sources, like `AppSettingsSource`, `EnvironmentVariableSource` or `CommandLineSource`.
 ```C#
         IConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.AddSources(
