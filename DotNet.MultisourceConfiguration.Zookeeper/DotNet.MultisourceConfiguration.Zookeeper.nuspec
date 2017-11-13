@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>DotNet.MultiSourceConfiguration.Zookeeper</id>
-		<version>0.1.0</version>
+		<version>0.1.1</version>
 		<title>DotNet.MultiSourceConfiguration.Zookeeper</title>
 		<authors>Rubén Martínez</authors>
 		<owners>Rubén Martínez</owners>
@@ -11,12 +11,12 @@
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<summary>Zookeeper configuration source for the DotNet.MultiSourceConfiguration library.</summary>
 		<description>Zookeeper configuration source for the DotNet.MultiSourceConfiguration library.</description>
-		<releaseNotes>First version.</releaseNotes>
+		<releaseNotes>Changed the underlying ZooKeeper .NET client to ZooKeeperDotNet.</releaseNotes>
 		<copyright>Copyright 2017</copyright>
 		<tags>ZooKeeper Configuration Source Multisource MultiSourceConfiguration DotNet.MultiSourceConfiguration</tags>
 		<dependencies>
 			<dependency id="DotNet.MultiSourceConfiguration" version="[0.1,1.0)" />
-			<dependency id="ZooKeeper.Net" version="[3.0,4.0)" />
+			<dependency id="ZooKeeperDotNet" version="[3.0,4.0)" />
 			
 		</dependencies>
 	</metadata>

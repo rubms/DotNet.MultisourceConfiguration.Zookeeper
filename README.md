@@ -3,11 +3,11 @@
 [![Build Status](https://travis-ci.org/rubms/DotNet.MultisourceConfiguration.Zookeeper.svg?branch=master)](https://travis-ci.org/rubms/DotNet.MultisourceConfiguration.Zookeeper)
 [![NuGet Version](https://img.shields.io/nuget/v/DotNet.MultiSourceConfiguration.Zookeeper.svg?style=flat)](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration.Zookeeper)
 
-Zookeeper configuration source for the [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration) library, based on the [ZooKeeper.Net](https://www.nuget.org/packages/ZooKeeper.Net/) ZooKeeper client.
+Zookeeper configuration source for the [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration) library, based on the [ZooKeeperDotNet](https://www.nuget.org/packages/ZooKeeperDotNet/) ZooKeeper client.
 
 ## How to use it
 
-You can add ZookeeperConfigSource as a configuration source for your IConfigurationBuilder (from [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration)). You need to provide an instance of IZooKeeper (from [ZooKeeper.Net](https://www.nuget.org/packages/ZooKeeper.Net/)) to the ZookeeperConfigSource, for it to be able to connect ZooKeeper. In addition you need to provide a _base path_, which is the base path in ZooKeeper for the nodes containing your configuration properties.
+You can add ZookeeperConfigSource as a configuration source for your IConfigurationBuilder (from [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration)). You need to provide an instance of IZooKeeper (from [ZooKeeper.Net](https://www.nuget.org/packages/ZooKeeperDotNet/)) to the ZookeeperConfigSource, for it to be able to connect ZooKeeper. In addition you need to provide a _base path_, which is the base path in ZooKeeper for the nodes containing your configuration properties.
 ```C#
     using MultisourceConfiguration;
     using MultisourceConfiguration.Zookeeper;
@@ -18,7 +18,7 @@ You can add ZookeeperConfigSource as a configuration source for your IConfigurat
         static void Main(string[] args)
         {
             IConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
-            IZooKeeper zooKeeper = new ZooKeeper("localhost:2181", TimeSpan.TimeSpan.FromSeconds(30), new ZooKeeperConfigWatcher());
+            IZooKeeper zooKeeper = new ZooKeeper("localhost:2181", TimeSpan.FromSeconds(30), new ZooKeeperConfigWatcher());
             configurationBuilder.AddSources(new ZookeeperConfigSource(zooKeeper, "/path/to/config/in/zookeeper"));
             
             TestConfigurationDto configurationInterface = configurationBuilder.Build<TestConfigurationDto>();
@@ -49,7 +49,7 @@ when the configuration is built using `configurationBuilder.Build<TestConfigurat
 
 ## Bootstrapping the ZooKeeper Configuration
 
-It very probable that will want to read the ZooKeeper connection string (comma separated list of `host:port`) and the session timeout from configuration, instead of hard-coding it. You may read that configuration from your IConfigurationBuilder, taking advantage of other configuration sources, like `AppSettingsSource`, `EnvironmentVariableSource` or `CommandLineSource`.
+You will very probably want to read the ZooKeeper connection string (comma separated list of `host:port`) and the session timeout from configuration, instead of hard-coding it. You may read that configuration from your IConfigurationBuilder, taking advantage of other configuration sources, like `AppSettingsSource`, `EnvironmentVariableSource` or `CommandLineSource`.
 ```C#
         IConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.AddSources(
@@ -58,7 +58,7 @@ It very probable that will want to read the ZooKeeper connection string (comma s
         // MyZooKeeperConfig must be a class you define that will hold the configuration for ZooKeeper.
         MyZooKeeperConfig myZooKeeperConfig = configurationBuilder.Build<MyZooKeeperConfig>();
 
-        IZooKeeper zooKeeper = new ZooKeeper(myZooKeeperConfig.ConnectionString, myZooKeeperConfig.SessionTimeOut, new ZooKeeperConfigWatcher());
+        IZooKeeper zooKeeper = new ZooKeeper(myZooKeeperConfig.ConnectionString, TimeSpan.FromSeconds(myZooKeeperConfig.SessionTimeOut.Value), new ZooKeeperConfigWatcher());
         configurationBuilder.AddSources(new ZookeeperConfigSource(zooKeeper, "/path/to/config/in/zookeeper"));
 ```
 
