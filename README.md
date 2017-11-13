@@ -3,11 +3,11 @@
 [![Build Status](https://travis-ci.org/rubms/DotNet.MultisourceConfiguration.Zookeeper.svg?branch=master)](https://travis-ci.org/rubms/DotNet.MultisourceConfiguration.Zookeeper)
 [![NuGet Version](https://img.shields.io/nuget/v/DotNet.MultiSourceConfiguration.Zookeeper.svg?style=flat)](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration.Zookeeper)
 
-Zookeeper configuration source for the [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration) library, based on the [ZooKeeperDotNet](https://www.nuget.org/packages/ZooKeeperDotNet/) ZooKeeper client.
+Zookeeper configuration source for the [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration) library, based on the [ZooKeeper.Net](https://www.nuget.org/packages/ZooKeeper.Net/) ZooKeeper client.
 
 ## How to use it
 
-You can add ZookeeperConfigSource as a configuration source for your IConfigurationBuilder (from [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration)). You need to provide an instance of IZooKeeper (from [ZooKeeper.Net](https://www.nuget.org/packages/ZooKeeperDotNet/)) to the ZookeeperConfigSource, for it to be able to connect ZooKeeper. In addition you need to provide a _base path_, which is the base path in ZooKeeper for the nodes containing your configuration properties.
+You can add ZookeeperConfigSource as a configuration source for your IConfigurationBuilder (from [DotNet.MultiSourceConfiguration](https://www.nuget.org/packages/DotNet.MultiSourceConfiguration)). You need to provide an instance of IZooKeeper (from [ZooKeeper.Net](https://www.nuget.org/packages/ZooKeeper.Net/)) to the ZookeeperConfigSource, for it to be able to connect ZooKeeper. In addition you need to provide a _base path_, which is the base path in ZooKeeper for the nodes containing your configuration properties.
 ```C#
     using MultisourceConfiguration;
     using MultisourceConfiguration.Zookeeper;
