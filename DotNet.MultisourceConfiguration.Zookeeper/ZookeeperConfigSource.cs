@@ -1,16 +1,14 @@
 ﻿using MultiSourceConfiguration.Config.ConfigSource;
+using org.apache.zookeeper;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZooKeeperNet;
 
 namespace MultisourceConfiguration.Zookeeper
 {
     public class ZookeeperConfigSource : IStringConfigSource
     {
-        private readonly IZooKeeper _zooKeeper;
+        private readonly ZooKeeper _zooKeeper;
         private readonly string _basePath;
 
         /// <summary>
@@ -19,7 +17,7 @@ namespace MultisourceConfiguration.Zookeeper
         /// </summary>
         /// <param name="zooKeeper">ZooKeeper client.</param>
         /// <param name="sessionTimeout">The ZooKeeper session timeout.</param>
-        public ZookeeperConfigSource(IZooKeeper zooKeeper, string basePath)
+        public ZookeeperConfigSource(ZooKeeper zooKeeper, string basePath)
         {
             if (zooKeeper == null)
                 throw new ArgumentNullException("zooKeeper");
@@ -38,12 +36,15 @@ namespace MultisourceConfiguration.Zookeeper
         {
             try
             {
-                value = Encoding.UTF8.GetString(_zooKeeper.GetData(_basePath + "/" + property, true, null));
+                var dataTask = _zooKeeper.getDataAsync(_basePath + "/" + property, true);
+                dataTask.Wait();
+                byte[] data = dataTask.Result.Data;
+                value = Encoding.UTF8.GetString(data);
                 return true;
             }
             catch(KeeperException ex)
             {
-                if (ex.ErrorCode == KeeperException.Code.NONODE)
+                if (ex.getCode() == KeeperException.Code.NONODE)
                 {
                     value = null;
                     return false;
