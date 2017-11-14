@@ -32,6 +32,8 @@ namespace MultisourceConfiguration.Zookeeper
             }
         }
 
+        public TimeSpan CacheExpiration { private get; set; }
+
         public bool TryGetString(string property, out string value)
         {
             try
