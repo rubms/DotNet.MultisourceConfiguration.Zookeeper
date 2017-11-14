@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>DotNet.MultiSourceConfiguration.Zookeeper</id>
-		<version>0.2.0</version>
+		<version>0.2.1</version>
 		<title>DotNet.MultiSourceConfiguration.Zookeeper</title>
 		<authors>Rubén Martínez</authors>
 		<owners>Rubén Martínez</owners>
@@ -11,11 +11,11 @@
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<summary>Zookeeper configuration source for the DotNet.MultiSourceConfiguration library.</summary>
 		<description>Zookeeper configuration source for the DotNet.MultiSourceConfiguration library.</description>
-		<releaseNotes>Changed the ZooKeeper .Net client to ZooKeeperNetEx because ZooKeeper.Net references ancient version of log4net with a different public token, which makes it impossible to use with a modern version of log4net.</releaseNotes>
+		<releaseNotes>Fixed bug in the handling of exceptions when a requested property does not exist as data node in ZooKeeper.</releaseNotes>
 		<copyright>Copyright 2017</copyright>
 		<tags>ZooKeeper Configuration Source Multisource MultiSourceConfiguration DotNet.MultiSourceConfiguration</tags>
 		<dependencies>
-			<dependency id="DotNet.MultiSourceConfiguration" version="[0.1,1.0)" />
+			<dependency id="DotNet.MultiSourceConfiguration" version="[0.4,1.0)" />
 			<dependency id="ZooKeeperNetEx" version="[3.0,4.0)" />
 		</dependencies>
 	</metadata>

@@ -42,9 +42,10 @@ namespace MultisourceConfiguration.Zookeeper
                 value = Encoding.UTF8.GetString(data);
                 return true;
             }
-            catch(KeeperException ex)
+            catch(AggregateException ex)
             {
-                if (ex.getCode() == KeeperException.Code.NONODE)
+                KeeperException keeperException = ex.InnerException as KeeperException;
+                if (keeperException != null && keeperException.getCode() == KeeperException.Code.NONODE)
                 {
                     value = null;
                     return false;
